@@ -9,7 +9,7 @@ import UIKit
 
 class LoginViewController: UIViewController  {
     
-    // UI Items 
+    // UI Items
     private let  scroll: UIScrollView = {
        let scroll = UIScrollView()
         scroll.clipsToBounds = true
