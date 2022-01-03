@@ -7,9 +7,9 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController  {
     
-    
+    // UI Items 
     private let  scroll: UIScrollView = {
        let scroll = UIScrollView()
         scroll.clipsToBounds = true
@@ -62,8 +62,7 @@ class LoginViewController: UIViewController {
         
         
     }()
-    
-    
+
     private let logoImgView: UIImageView = {
         let logoImgView = UIImageView()
         logoImgView.image = UIImage(named: "logo")
@@ -87,13 +86,20 @@ class LoginViewController: UIViewController {
         scroll.addSubview(passFld)
         // add btn
         scroll.addSubview(loginBtn)
+        
+        
+        loginBtn.addTarget(self, action: #selector(loginPressed), for: .touchUpInside)
+        
+        
+        emailfld.delegate = self
+        passFld.delegate = self
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         scroll.frame = view.bounds
-        // 2
-        let s = scroll.frame.size.width/1
+        // constraint
+        let s = scroll.frame.size.width/2
         logoImgView.frame = CGRect(x: (scroll.frame.size.width-s)/2,
                                    y: 25,
                                    width: s,
@@ -119,7 +125,38 @@ class LoginViewController: UIViewController {
         
     }
     
+    @objc private func loginPressed(){
+//        emailfld.resignFirstResponder()
+//        passFld.resignFirstResponder()
+        guard let email = emailfld.text,
+              let pass = passFld.text,
+              !email.isEmpty, !pass.isEmpty , pass.count >= 6  else {
+                  return
+              }
+       // firebase login
+                
+    
+    }
+    func alertDailgLogErr(){
+        let alertDailog = UIAlertController(title: "Wrong ", message: "Please Enter all fields", preferredStyle: .alert)
+        alertDailog.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+present(alertDailog, animated: true)
+    
+             }
+    
 
 
 
 }
+extension LoginViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == emailfld{
+            passFld.becomeFirstResponder()
+        }else if textField == passFld{
+            loginPressed()
+        }
+        return true
+
+    }
+}
+
