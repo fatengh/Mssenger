@@ -22,6 +22,7 @@
 		C326068D278332BC00FFED2E /* PictureViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C326068C278332BC00FFED2E /* PictureViewerViewController.swift */; };
 		C326068F2783335A00FFED2E /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C326068E2783335A00FFED2E /* NewConversationViewController.swift */; };
 		C32606912783337300FFED2E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32606902783337300FFED2E /* ProfileViewController.swift */; };
+		C32606932783745600FFED2E /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32606922783745600FFED2E /* Extentions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		C326068C278332BC00FFED2E /* PictureViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureViewerViewController.swift; sourceTree = "<group>"; };
 		C326068E2783335A00FFED2E /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
 		C32606902783337300FFED2E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		C32606922783745600FFED2E /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +182,7 @@
 			children = (
 				C326064E2783217500FFED2E /* AppDelegate.swift */,
 				C32606502783217500FFED2E /* SceneDelegate.swift */,
+				C32606922783745600FFED2E /* Extentions.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 			files = (
 				C326068D278332BC00FFED2E /* PictureViewerViewController.swift in Sources */,
 				C32606532783217500FFED2E /* ConversationViewController.swift in Sources */,
+				C32606932783745600FFED2E /* Extentions.swift in Sources */,
 				C326068F2783335A00FFED2E /* NewConversationViewController.swift in Sources */,
 				C32606592783217500FFED2E /* Mssenger.xcdatamodeld in Sources */,
 				C326064F2783217500FFED2E /* AppDelegate.swift in Sources */,
