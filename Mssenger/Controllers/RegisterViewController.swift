@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import Firebase
 class RegisterViewController: UIViewController {
 
     private let  scroll: UIScrollView = {
@@ -191,7 +191,14 @@ class RegisterViewController: UIViewController {
                   return
               }
        // firebase login
-                
+        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: pass, completion:{authReult, error in
+            guard let res = authReult, error == nil else {
+                print("Error in create new account")
+                return
+            }
+            let user = res.user
+            print("created user \(user)")
+        } )
     
     }
     func alertDailgLogErr(){

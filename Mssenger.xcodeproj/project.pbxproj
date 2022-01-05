@@ -14,15 +14,17 @@
 		C32606592783217500FFED2E /* Mssenger.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C32606572783217500FFED2E /* Mssenger.xcdatamodeld */; };
 		C326065B2783217800FFED2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C326065A2783217800FFED2E /* Assets.xcassets */; };
 		C326065E2783217800FFED2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C326065C2783217800FFED2E /* LaunchScreen.storyboard */; };
-		C32606692783217800FFED2E /* MssengerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32606682783217800FFED2E /* MssengerTests.swift */; };
-		C32606732783217800FFED2E /* MssengerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32606722783217800FFED2E /* MssengerUITests.swift */; };
-		C32606752783217800FFED2E /* MssengerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32606742783217800FFED2E /* MssengerUITestsLaunchTests.swift */; };
 		C32606892783325000FFED2E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32606882783325000FFED2E /* LoginViewController.swift */; };
 		C326068B2783327900FFED2E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C326068A2783327900FFED2E /* RegisterViewController.swift */; };
 		C326068D278332BC00FFED2E /* PictureViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C326068C278332BC00FFED2E /* PictureViewerViewController.swift */; };
 		C326068F2783335A00FFED2E /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C326068E2783335A00FFED2E /* NewConversationViewController.swift */; };
 		C32606912783337300FFED2E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32606902783337300FFED2E /* ProfileViewController.swift */; };
 		C32606932783745600FFED2E /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32606922783745600FFED2E /* Extentions.swift */; };
+		C32606C12786418D00FFED2E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C32606C02786418D00FFED2E /* GoogleService-Info.plist */; };
+		C32606C4278641CD00FFED2E /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = C32606C3278641CD00FFED2E /* FirebaseAnalytics */; };
+		C32606C6278641CD00FFED2E /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C32606C5278641CD00FFED2E /* FirebaseAuth */; };
+		C32606C8278641CD00FFED2E /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = C32606C7278641CD00FFED2E /* FirebaseDatabase */; };
+		C32606CA278641CD00FFED2E /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = C32606C9278641CD00FFED2E /* FirebaseStorage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,16 +55,14 @@
 		C326065D2783217800FFED2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C326065F2783217800FFED2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C32606642783217800FFED2E /* MssengerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MssengerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C32606682783217800FFED2E /* MssengerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MssengerTests.swift; sourceTree = "<group>"; };
 		C326066E2783217800FFED2E /* MssengerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MssengerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C32606722783217800FFED2E /* MssengerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MssengerUITests.swift; sourceTree = "<group>"; };
-		C32606742783217800FFED2E /* MssengerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MssengerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C32606882783325000FFED2E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C326068A2783327900FFED2E /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		C326068C278332BC00FFED2E /* PictureViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureViewerViewController.swift; sourceTree = "<group>"; };
 		C326068E2783335A00FFED2E /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
 		C32606902783337300FFED2E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C32606922783745600FFED2E /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
+		C32606C02786418D00FFED2E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +70,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C32606C8278641CD00FFED2E /* FirebaseDatabase in Frameworks */,
+				C32606CA278641CD00FFED2E /* FirebaseStorage in Frameworks */,
+				C32606C4278641CD00FFED2E /* FirebaseAnalytics in Frameworks */,
+				C32606C6278641CD00FFED2E /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,8 +98,6 @@
 			isa = PBXGroup;
 			children = (
 				C326064D2783217500FFED2E /* Mssenger */,
-				C32606672783217800FFED2E /* MssengerTests */,
-				C32606712783217800FFED2E /* MssengerUITests */,
 				C326064C2783217500FFED2E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -120,25 +122,9 @@
 				C3260681278325D800FFED2E /* Controllers */,
 				C326065F2783217800FFED2E /* Info.plist */,
 				C32606572783217500FFED2E /* Mssenger.xcdatamodeld */,
+				C32606C02786418D00FFED2E /* GoogleService-Info.plist */,
 			);
 			path = Mssenger;
-			sourceTree = "<group>";
-		};
-		C32606672783217800FFED2E /* MssengerTests */ = {
-			isa = PBXGroup;
-			children = (
-				C32606682783217800FFED2E /* MssengerTests.swift */,
-			);
-			path = MssengerTests;
-			sourceTree = "<group>";
-		};
-		C32606712783217800FFED2E /* MssengerUITests */ = {
-			isa = PBXGroup;
-			children = (
-				C32606722783217800FFED2E /* MssengerUITests.swift */,
-				C32606742783217800FFED2E /* MssengerUITestsLaunchTests.swift */,
-			);
-			path = MssengerUITests;
 			sourceTree = "<group>";
 		};
 		C3260681278325D800FFED2E /* Controllers */ = {
@@ -212,6 +198,12 @@
 			dependencies = (
 			);
 			name = Mssenger;
+			packageProductDependencies = (
+				C32606C3278641CD00FFED2E /* FirebaseAnalytics */,
+				C32606C5278641CD00FFED2E /* FirebaseAuth */,
+				C32606C7278641CD00FFED2E /* FirebaseDatabase */,
+				C32606C9278641CD00FFED2E /* FirebaseStorage */,
+			);
 			productName = Mssenger;
 			productReference = C326064B2783217500FFED2E /* Mssenger.app */;
 			productType = "com.apple.product-type.application";
@@ -284,6 +276,9 @@
 				Base,
 			);
 			mainGroup = C32606422783217500FFED2E;
+			packageReferences = (
+				C32606C2278641CD00FFED2E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = C326064C2783217500FFED2E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -301,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C326065E2783217800FFED2E /* LaunchScreen.storyboard in Resources */,
+				C32606C12786418D00FFED2E /* GoogleService-Info.plist in Resources */,
 				C326065B2783217800FFED2E /* Assets.xcassets in Resources */,
 				C32606562783217500FFED2E /* Main.storyboard in Resources */,
 			);
@@ -344,7 +340,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C32606692783217800FFED2E /* MssengerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,8 +347,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C32606752783217800FFED2E /* MssengerUITestsLaunchTests.swift in Sources */,
-				C32606732783217800FFED2E /* MssengerUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,11 +511,14 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mssenger/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Please Allow Access to Take a photo";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Please allow access PHOTOS from your libriry";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -548,11 +544,14 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mssenger/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Please Allow Access to Take a photo";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Please allow access PHOTOS from your libriry";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -680,6 +679,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C32606C2278641CD00FFED2E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C32606C3278641CD00FFED2E /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C32606C2278641CD00FFED2E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		C32606C5278641CD00FFED2E /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C32606C2278641CD00FFED2E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		C32606C7278641CD00FFED2E /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C32606C2278641CD00FFED2E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		C32606C9278641CD00FFED2E /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C32606C2278641CD00FFED2E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		C32606572783217500FFED2E /* Mssenger.xcdatamodeld */ = {

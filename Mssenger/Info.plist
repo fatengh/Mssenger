@@ -4,23 +4,6 @@
 <dict>
 	<key></key>
 	<string></string>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Please allow access PHOTOS from your libriry</string>
-	<key>NSCameraUsageDescription</key>
-	<string>Please Allow Access to Take a photo</string>
-	<key>UISupportedInterfaceOrientations~ipad</key>
-	<array>
-		<string>UIInterfaceOrientationPortraitUpsideDown</string>
-		<string>UIInterfaceOrientationPortrait</string>
-	</array>
-	<key>UISupportedInterfaceOrientations</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-	</array>
-	<key>UIRequiredDeviceCapabilities</key>
-	<array>
-		<string>armv7</string>
-	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
