@@ -25,6 +25,7 @@
 		C32606C6278641CD00FFED2E /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C32606C5278641CD00FFED2E /* FirebaseAuth */; };
 		C32606C8278641CD00FFED2E /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = C32606C7278641CD00FFED2E /* FirebaseDatabase */; };
 		C32606CA278641CD00FFED2E /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = C32606C9278641CD00FFED2E /* FirebaseStorage */; };
+		C32606CC27865E9000FFED2E /* DataBaseManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32606CB27865E9000FFED2E /* DataBaseManger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		C32606902783337300FFED2E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C32606922783745600FFED2E /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		C32606C02786418D00FFED2E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C32606CB27865E9000FFED2E /* DataBaseManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseManger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 				C326064E2783217500FFED2E /* AppDelegate.swift */,
 				C32606502783217500FFED2E /* SceneDelegate.swift */,
 				C32606922783745600FFED2E /* Extentions.swift */,
+				C32606CB27865E9000FFED2E /* DataBaseManger.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				C326068F2783335A00FFED2E /* NewConversationViewController.swift in Sources */,
 				C32606592783217500FFED2E /* Mssenger.xcdatamodeld in Sources */,
 				C326064F2783217500FFED2E /* AppDelegate.swift in Sources */,
+				C32606CC27865E9000FFED2E /* DataBaseManger.swift in Sources */,
 				C326068B2783327900FFED2E /* RegisterViewController.swift in Sources */,
 				C32606912783337300FFED2E /* ProfileViewController.swift in Sources */,
 				C32606892783325000FFED2E /* LoginViewController.swift in Sources */,

@@ -190,19 +190,37 @@ class RegisterViewController: UIViewController {
               !email.isEmpty, !pass.isEmpty, pass.count >= 6 , !firstName.isEmpty, !lastName.isEmpty else {
                   return
               }
+        
+        
+        DataBaseManger.shared.checkNewUserExists(with: email, completion: { [weak self] valid in
+            // check not exites
+            guard let stgSelf = self else{
+                return
+            }
+            guard !valid else {
+                stgSelf.alertDailgLogErr(msg: " Email already exist")
+                return
+            }
        // firebase login
-        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: pass, completion:{authReult, error in
-            guard let res = authReult, error == nil else {
+        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: pass, completion:{ authReult, error in
+            
+            guard authReult != nil, error == nil else {
                 print("Error in create new account")
                 return
             }
-            let user = res.user
-            print("created user \(user)")
-        } )
-    
+
+            
+                DataBaseManger.shared.insertNewUser(with: ChatUser(firstName: firstName, lastName: lastName, emailAdd: email))
+                stgSelf.navigationController?.dismiss(animated: true, completion: nil)
+
+            })
+                
+            })
+        
     }
-    func alertDailgLogErr(){
-        let alertDailog = UIAlertController(title: "Wrong ", message: "Please Enter all fields", preferredStyle: .alert)
+    
+    func alertDailgLogErr(msg: String){
+        let alertDailog = UIAlertController(title: "Wrong ", message: msg, preferredStyle: .alert)
         alertDailog.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
 present(alertDailog, animated: true)
     
