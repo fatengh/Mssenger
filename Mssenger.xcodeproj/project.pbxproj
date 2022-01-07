@@ -26,6 +26,12 @@
 		C32606C8278641CD00FFED2E /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = C32606C7278641CD00FFED2E /* FirebaseDatabase */; };
 		C32606CA278641CD00FFED2E /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = C32606C9278641CD00FFED2E /* FirebaseStorage */; };
 		C32606CC27865E9000FFED2E /* DataBaseManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32606CB27865E9000FFED2E /* DataBaseManger.swift */; };
+		C32606D02787B27D00FFED2E /* FacebookAEM in Frameworks */ = {isa = PBXBuildFile; productRef = C32606CF2787B27D00FFED2E /* FacebookAEM */; };
+		C32606D22787B27D00FFED2E /* FacebookBasics in Frameworks */ = {isa = PBXBuildFile; productRef = C32606D12787B27D00FFED2E /* FacebookBasics */; };
+		C32606D42787B27D00FFED2E /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = C32606D32787B27D00FFED2E /* FacebookCore */; };
+		C32606D62787B27D00FFED2E /* FacebookGamingServices in Frameworks */ = {isa = PBXBuildFile; productRef = C32606D52787B27D00FFED2E /* FacebookGamingServices */; };
+		C32606D82787B27D00FFED2E /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = C32606D72787B27D00FFED2E /* FacebookLogin */; };
+		C32606DA2787B27D00FFED2E /* FacebookShare in Frameworks */ = {isa = PBXBuildFile; productRef = C32606D92787B27D00FFED2E /* FacebookShare */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,9 +79,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				C32606C8278641CD00FFED2E /* FirebaseDatabase in Frameworks */,
+				C32606D02787B27D00FFED2E /* FacebookAEM in Frameworks */,
+				C32606D42787B27D00FFED2E /* FacebookCore in Frameworks */,
 				C32606CA278641CD00FFED2E /* FirebaseStorage in Frameworks */,
+				C32606D22787B27D00FFED2E /* FacebookBasics in Frameworks */,
+				C32606D82787B27D00FFED2E /* FacebookLogin in Frameworks */,
 				C32606C4278641CD00FFED2E /* FirebaseAnalytics in Frameworks */,
 				C32606C6278641CD00FFED2E /* FirebaseAuth in Frameworks */,
+				C32606DA2787B27D00FFED2E /* FacebookShare in Frameworks */,
+				C32606D62787B27D00FFED2E /* FacebookGamingServices in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,6 +218,12 @@
 				C32606C5278641CD00FFED2E /* FirebaseAuth */,
 				C32606C7278641CD00FFED2E /* FirebaseDatabase */,
 				C32606C9278641CD00FFED2E /* FirebaseStorage */,
+				C32606CF2787B27D00FFED2E /* FacebookAEM */,
+				C32606D12787B27D00FFED2E /* FacebookBasics */,
+				C32606D32787B27D00FFED2E /* FacebookCore */,
+				C32606D52787B27D00FFED2E /* FacebookGamingServices */,
+				C32606D72787B27D00FFED2E /* FacebookLogin */,
+				C32606D92787B27D00FFED2E /* FacebookShare */,
 			);
 			productName = Mssenger;
 			productReference = C326064B2783217500FFED2E /* Mssenger.app */;
@@ -281,6 +299,7 @@
 			mainGroup = C32606422783217500FFED2E;
 			packageReferences = (
 				C32606C2278641CD00FFED2E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				C32606CE2787B27C00FFED2E /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 			);
 			productRefGroup = C326064C2783217500FFED2E /* Products */;
 			projectDirPath = "";
@@ -524,7 +543,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -557,7 +576,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -693,6 +712,14 @@
 				minimumVersion = 8.0.0;
 			};
 		};
+		C32606CE2787B27C00FFED2E /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -715,6 +742,36 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C32606C2278641CD00FFED2E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		C32606CF2787B27D00FFED2E /* FacebookAEM */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C32606CE2787B27C00FFED2E /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookAEM;
+		};
+		C32606D12787B27D00FFED2E /* FacebookBasics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C32606CE2787B27C00FFED2E /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookBasics;
+		};
+		C32606D32787B27D00FFED2E /* FacebookCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C32606CE2787B27C00FFED2E /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookCore;
+		};
+		C32606D52787B27D00FFED2E /* FacebookGamingServices */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C32606CE2787B27C00FFED2E /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookGamingServices;
+		};
+		C32606D72787B27D00FFED2E /* FacebookLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C32606CE2787B27C00FFED2E /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookLogin;
+		};
+		C32606D92787B27D00FFED2E /* FacebookShare */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C32606CE2787B27C00FFED2E /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookShare;
 		};
 /* End XCSwiftPackageProductDependency section */
 

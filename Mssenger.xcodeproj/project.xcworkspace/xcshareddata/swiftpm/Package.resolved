@@ -20,6 +20,15 @@
         }
       },
       {
+        "package": "Facebook",
+        "repositoryURL": "https://github.com/facebook/facebook-ios-sdk",
+        "state": {
+          "branch": "main",
+          "revision": "ffad899fd1ea1f0be4b599f59fcac23973cb7ae0",
+          "version": null
+        }
+      },
+      {
         "package": "Firebase",
         "repositoryURL": "https://github.com/firebase/firebase-ios-sdk",
         "state": {
