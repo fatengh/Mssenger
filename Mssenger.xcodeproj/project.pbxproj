@@ -39,6 +39,7 @@
 		C32606E8278B629000FFED2E /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = C32606E7278B629000FFED2E /* SDWebImage */; };
 		C32606EA278B629000FFED2E /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C32606E9278B629000FFED2E /* SDWebImageMapKit */; };
 		C32606EC278B748B00FFED2E /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32606EB278B748800FFED2E /* ChatViewController.swift */; };
+		C32606EE278B9C9F00FFED2E /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32606ED278B9C9D00FFED2E /* StorageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		C32606C02786418D00FFED2E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C32606CB27865E9000FFED2E /* DataBaseManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseManger.swift; sourceTree = "<group>"; };
 		C32606EB278B748800FFED2E /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		C32606ED278B9C9D00FFED2E /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +201,7 @@
 				C32606502783217500FFED2E /* SceneDelegate.swift */,
 				C32606922783745600FFED2E /* Extentions.swift */,
 				C32606CB27865E9000FFED2E /* DataBaseManger.swift */,
+				C32606ED278B9C9D00FFED2E /* StorageManager.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 				C32606892783325000FFED2E /* LoginViewController.swift in Sources */,
 				C32606EC278B748B00FFED2E /* ChatViewController.swift in Sources */,
 				C32606512783217500FFED2E /* SceneDelegate.swift in Sources */,
+				C32606EE278B9C9F00FFED2E /* StorageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

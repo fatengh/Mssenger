@@ -37,11 +37,18 @@ extension DataBaseManger{
     }
     
     // insert new user
-    public func insertNewUser(with user: ChatUser){
+    public func insertNewUser(with user: ChatUser, completion: @escaping (Bool) -> Void){
         database.child(user.safe).setValue([
             "first_name": user.firstName,
             "last_name": user.lastName,
-        ])
+        ]) { error , _ in
+            guard error == nil else {
+                print("failed to write to database")
+                completion(false)
+                return
+            }
+            completion(true)
+        }
         
     }
 }
@@ -54,6 +61,10 @@ extension DataBaseManger{
             var safe = emailAdd.replacingOccurrences(of: ".", with: "-")
             safe = safe.replacingOccurrences(of: "@", with: "-")
             return safe
+        }
+        
+        var profilePicFileName: String {
+           return "\(safe)_profile_picture.png"
         }
     }
 

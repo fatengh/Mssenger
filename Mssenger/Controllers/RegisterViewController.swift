@@ -196,6 +196,7 @@ class RegisterViewController: UIViewController {
               }
         
         spinn.show(in: view)
+        
         DataBaseManger.shared.checkNewUserExists(with: email, completion: { [weak self] valid in
             // check not exites
             guard let stgSelf = self else{
@@ -219,11 +220,28 @@ class RegisterViewController: UIViewController {
                 return
             }
 
-            
-                DataBaseManger.shared.insertNewUser(with: ChatUser(firstName: firstName, lastName: lastName, emailAdd: email))
+            let chatUser = ChatUser(firstName: firstName, lastName: lastName, emailAdd: email)
+            DataBaseManger.shared.insertNewUser(with: chatUser, completion:{ success in
+                if success{
+                    guard let img = stgSelf.logoImgView.image, let data = img.pngData() else {
+                        return
+                    }
+                    let fileName = chatUser.profilePicFileName
+                    StorageManager.shared.uploadProfilePhoto(with: data, fileName: fileName, completion: { result in
+                        switch result {
+                        case .success(let downloadUrl):
+                            UserDefaults.standard.set(downloadUrl, forKey: "profile_picture_url")
+                            print(downloadUrl)
+                        case .failure(let errordownUrl):
+                            print("storge error \(errordownUrl)")
+                        }
+                        
+                    })
+                }
+            })
                 stgSelf.navigationController?.dismiss(animated: true, completion: nil)
 
-            })
+        })
                 
             })
         

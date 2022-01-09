@@ -216,7 +216,7 @@ func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginMana
     // request obj
     let facebookRequest = FBSDKLoginKit.GraphRequest(graphPath: "me",
                                                             parameters: ["fields":
-                                                               "email, name"],
+                                                               "email, first_name, last_name, picture.type(large)"],
                                                             tokenString: token,
                                                             version: nil,
                                                             httpMethod: .get)
@@ -230,25 +230,48 @@ func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginMana
 
         
         print("\(result)")
-        guard let userName = result["name"] as? String,
-              let email = result["email"] as? String else{
-                  print("fieled to get data ")
-                  return
-              }
-        let fulname = userName.components(separatedBy: " ")
-        guard fulname.count == 2 else {
-            return
-        }
+           
+             guard let firstName = result["first_name"] as? String,
+                   let lastName = result["last_name"] as? String,
+                   let email = result["email"] as? String,
+                   let picture = result["picture"] as? [String: Any],
+                   let data = picture["data"] as? [String: Any],
+                   let picUrl = data["url"] as? String else{
+                       print("fieled to get data ")
+                       return
+                   }
         
-        let firstName = fulname[0]
-        let lastName = fulname[1]
         
-        DataBaseManger.shared.checkNewUserExists(with: email, completion: { exists in
-            if !exists {
-                DataBaseManger.shared.insertNewUser(with: ChatUser(firstName: firstName,
-                                                                   lastName: lastName,
-                                                                   emailAdd: email))
-            }
+             DataBaseManger.shared.checkNewUserExists(with: email, completion: { exists in
+                 if !exists {
+                     let chatUser = ChatUser(firstName: firstName, lastName: lastName, emailAdd: email)
+                     DataBaseManger.shared.insertNewUser(with: chatUser, completion:{ success in
+                         if success{
+                             guard let url = URL(string: picUrl) else {
+                                 return
+                             }
+                             
+                             URLSession.shared.dataTask(with: url, completionHandler: {data, _, _ in
+                                 guard let data = data else {
+                                     return
+                                 }
+                                 let fileName = chatUser.profilePicFileName
+                                 StorageManager.shared.uploadProfilePhoto(with: data, fileName: fileName, completion: { result in
+                                     switch result {
+                                     case .success(let downloadUrl):
+                                         UserDefaults.standard.set(downloadUrl, forKey: "profile_picture_url")
+                                         print(downloadUrl)
+                                     case .failure(let errordownUrl):
+                                         print("storage error \(errordownUrl)")
+                                     }
+                                     
+                                 })
+                             }).resume()
+                             
+                         }
+                         
+                     })
+                 }
             
         })
         
