@@ -7,7 +7,11 @@
 
 import UIKit
 import Firebase
+import JGProgressHUD
+
 class RegisterViewController: UIViewController {
+
+    private let spinn = JGProgressHUD(style: .dark)
 
     private let  scroll: UIScrollView = {
        let scroll = UIScrollView()
@@ -191,12 +195,18 @@ class RegisterViewController: UIViewController {
                   return
               }
         
-        
+        spinn.show(in: view)
         DataBaseManger.shared.checkNewUserExists(with: email, completion: { [weak self] valid in
             // check not exites
             guard let stgSelf = self else{
                 return
             }
+            DispatchQueue.main.async {
+                stgSelf.spinn.dismiss()
+
+            }
+
+            
             guard !valid else {
                 stgSelf.alertDailgLogErr(msg: " Email already exist")
                 return

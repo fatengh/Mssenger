@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import FBSDKLoginKit
 
 class ProfileViewController: UIViewController{
 
@@ -27,7 +28,7 @@ extension ProfileViewController:  UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath)
         cell.textLabel?.text = data[indexPath.row]
@@ -38,18 +39,29 @@ extension ProfileViewController:  UITableViewDelegate, UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let actionSheet = UIAlertController(title: "" , message: "", preferredStyle: .actionSheet)
         
-        do{
-          try FirebaseAuth.Auth.auth().signOut()
+        actionSheet.addAction(UIAlertAction(title: "LOG OUT", style: .destructive, handler: {[weak self] _ in
+            guard let stgSelf = self else {
+                return
+            }
+            do{
+                try FirebaseAuth.Auth.auth().signOut()
+                
+                let vc = LoginViewController()
+                let nav = UINavigationController(rootViewController: vc)
+                // to avoid pop like card and  can avoid it
+                nav.modalPresentationStyle = .fullScreen
+                stgSelf.present(nav, animated: true)
+            }
+            catch{
+                print("Field log out")
+            }
+            
+            
+        }))
+        actionSheet.addAction(UIAlertAction(title: "CANCEL", style: .cancel, handler: nil ))
+        present(actionSheet, animated: true )
         
-            let vc = LoginViewController()
-            let nav = UINavigationController(rootViewController: vc)
-            // to avoid pop like card and  can avoid it
-            nav.modalPresentationStyle = .fullScreen
-            present(nav, animated: true)
-        }
-        catch{
-            print("Field log out")
-        }
     }
 }

@@ -9,9 +9,12 @@ import UIKit
 import Firebase
 import FBSDKLoginKit
 import FacebookLogin
-//import FBSDKLoginKit
+import JGProgressHUD
 
 class LoginViewController: UIViewController  {
+    
+    private let spinn = JGProgressHUD(style: .dark)
+
     
     // UI Items
     private let  scroll: UIScrollView = {
@@ -151,11 +154,19 @@ class LoginViewController: UIViewController  {
               !email.isEmpty, !pass.isEmpty , pass.count >= 6  else {
                   return
               }
+        spinn.show(in: view)
+        
        // firebase login
         FirebaseAuth.Auth.auth().signIn(withEmail: email, password: pass, completion: {[weak self] authReult, error in
+            
             guard let stgSelf = self else{
                 return
             }
+            DispatchQueue.main.async {
+                stgSelf.spinn.dismiss()
+
+            }
+
             guard let res = authReult, error == nil else {
                 print("filed log in with this email ")
                 return
