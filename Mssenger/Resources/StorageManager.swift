@@ -56,10 +56,13 @@ static let shared = StorageManager()
             }
             completion(.success(url))
         }
+        
     }
     
     public enum StorageErrors: Error {
         case failedUpload
         case failedGetUrl
     }
+    
+    
 }

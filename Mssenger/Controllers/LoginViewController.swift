@@ -172,6 +172,7 @@ class LoginViewController: UIViewController  {
                 return
             }
             let user = res.user
+            UserDefaults.standard.set(email, forKey: "email")
             print("logged in user \(user)")
             stgSelf.navigationController?.dismiss(animated: true, completion: nil)
             
@@ -241,7 +242,7 @@ func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginMana
                        return
                    }
         
-        
+             UserDefaults.standard.set(email, forKey: "email")
              DataBaseManger.shared.checkNewUserExists(with: email, completion: { exists in
                  if !exists {
                      let chatUser = ChatUser(firstName: firstName, lastName: lastName, emailAdd: email)
