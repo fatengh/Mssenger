@@ -38,26 +38,78 @@ extension DataBaseManger{
             
             completion(true)
         })
-    
+        
     }
     
+    public func getAllUsers(completion: @escaping (Result<[[String: String]], Error>) -> Void) {
+           database.child("users").observeSingleEvent(of: .value, with: { snapshot in
+               guard let value = snapshot.value as? [[String: String]] else {
+                   completion(.failure(DatabaseError.failedFetch))
+                   return
+               }
+
+               completion(.success(value))
+           })
+       }
+    
+    public enum DatabaseError: Error {
+            case failedFetch
+
+            public var localizedDescription: String {
+                switch self {
+                case .failedFetch:
+                    return "This failed"
+                }
+            }
+        }
+
     // insert new user
     public func insertNewUser(with user: ChatUser, completion: @escaping (Bool) -> Void){
         database.child(user.safe).setValue([
             "first_name": user.firstName,
             "last_name": user.lastName,
-        ]) { error , _ in
+        ], withCompletionBlock:  { error , _ in
             guard error == nil else {
                 print("failed to write to database")
                 completion(false)
                 return
             }
-            completion(true)
-        }
-        
+            self.database.child("users").observeSingleEvent(of: .value, with: { snapshot in
+                if var usersCollection = snapshot.value as? [[String: String]] {
+                    let newElement = [
+                        "name": user.firstName + " " + user.lastName,
+                        "email": user.safe
+                    ]
+                    usersCollection.append(newElement)
+                    self.database.child("users").setValue(usersCollection, withCompletionBlock: { error, _ in
+                        guard error == nil else {
+                            completion(false)
+                            return
+                        }
+                        
+                        completion(true)
+                    })
+                }
+                else{
+                    let newCollection: [[String: String]] = [
+                        [
+                            "name": user.firstName + " " + user.lastName,
+                            "email": user.safe
+                        ]
+                    ]
+                    self.database.child("users").setValue(newCollection, withCompletionBlock: {error, _ in
+                        guard error == nil else {
+                            completion(false)
+                            return
+                        }
+                        completion(true)
+                    })
+                }
+            })
+        })
     }
 }
-   
+
     struct ChatUser{
         let firstName: String
         let lastName: String
