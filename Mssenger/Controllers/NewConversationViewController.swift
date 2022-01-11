@@ -12,7 +12,7 @@ import Network
 class NewConversationViewController: UIViewController {
     
     private let spinn = JGProgressHUD(style: .dark)
-    //public var completion: ((SearchResult) -> (Void))?
+    public var completion: (([String: String]) -> (Void))?
     private var users = [[String: String]]()
     private var hasFetched = false
     private var results = [[String: String]]()
@@ -82,7 +82,13 @@ extension NewConversationViewController: UITableViewDelegate, UITableViewDataSou
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
+        let targetUserData = results[indexPath.row]
+        dismiss(animated: true, completion: { [weak self] in
+
+            self?.completion?(targetUserData)
+
+        })
+
     }
 
     

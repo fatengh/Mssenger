@@ -110,6 +110,169 @@ extension DataBaseManger{
     }
 }
 
+extension DataBaseManger{
+    
+    public func createNewConversation(with otherUserEmail: String,  firstMessage: Msg, completion: @escaping (Bool) -> Void) {
+        guard let currentEmail = UserDefaults.standard.value(forKey: "email") as? String else {
+                 //   let currentNamme = UserDefaults.standard.value(forKey: "name") as? String
+        
+                        return
+                }
+        let safeEmail = DataBaseManger.safe(emailAdd: currentEmail)
+        let ref = database.child("\(safeEmail)")
+        ref.observeSingleEvent(of: .value, with: {snapshot in
+            guard var userNode = snapshot.value as? [String: Any] else{
+                completion(false)
+                print("user not found")
+                return
+            }
+            let messageDate = firstMessage.sentDate
+            let dateString = ChatViewController.dateFormatter.string(from: messageDate)
+
+            var message = ""
+
+            switch firstMessage.kind {
+                       case .text(let messageText):
+                           message = messageText
+                       case .attributedText(_):
+                           break
+                       case .photo(_):
+                           break
+                       case .video(_):
+                           break
+                       case .location(_):
+                           break
+                       case .emoji(_):
+                           break
+                       case .audio(_):
+                           break
+                       case .contact(_):
+                           break
+                       case .custom(_), .linkPreview(_):
+                           break
+                       }
+
+                       let conversationId = "conversation_\(firstMessage.messageId)"
+
+            
+            
+            
+            let newConvData: [String: Any] = [
+                "id": conversationId,
+                "other_user_email": otherUserEmail,
+//                "name": name,
+                "latest_message": [
+                    "date": dateString,
+                    "message": message,
+                    "is_read": false
+                    
+                ]
+            ]
+            if var coverstion = userNode["conversations"] as? [[String: Any]]{
+                coverstion.append(newConvData)
+                               userNode["conversations"] = coverstion
+                               ref.setValue(userNode, withCompletionBlock: { [weak self] error, _ in
+                                   guard error == nil else {
+                                       completion(false)
+                                       return
+                                   }
+                                   self?.finishCreatingConversation( conversationID: conversationId,  firstMessage: firstMessage, completion: completion)
+                               })
+            }else{
+                userNode["conversations"] = [
+                                   newConvData
+                               ]
+
+                               ref.setValue(userNode, withCompletionBlock: { [weak self] error, _ in
+                                   guard error == nil else {
+                                       completion(false)
+                                       return
+                                   }
+                                   self?.finishCreatingConversation(conversationID: conversationId, firstMessage: firstMessage, completion: completion)
+                                   
+                               })
+            }
+        })
+        }
+        
+    private func finishCreatingConversation(conversationID: String, firstMessage: Msg, completion: @escaping (Bool) -> Void) {
+        let messageDate = firstMessage.sentDate
+                let dateString = ChatViewController.dateFormatter.string(from: messageDate)
+ 
+        var message = ""
+
+        switch firstMessage.kind {
+                   case .text(let messageText):
+                       message = messageText
+                   case .attributedText(_):
+                       break
+                   case .photo(_):
+                       break
+                   case .video(_):
+                       break
+                   case .location(_):
+                       break
+                   case .emoji(_):
+                       break
+                   case .audio(_):
+                       break
+                   case .contact(_):
+                       break
+                   case .custom(_), .linkPreview(_):
+                       break
+                   }
+
+
+                guard let myEmmail = UserDefaults.standard.value(forKey: "email") as? String else {
+                    completion(false)
+                    return
+                }
+
+                let currentUserEmail = DataBaseManger.safe(emailAdd: myEmmail)
+        
+                 let collectionMessage: [String: Any] = [
+                    "id": firstMessage.messageId,
+                    "type": firstMessage.kind.messageKindString,
+                    "content": message,
+                    "date": dateString,
+                    "sender_email": currentUserEmail,
+                    "is_read": false,
+                   
+                ]
+
+        
+        let value: [String: Any] = [
+            "messages": [
+            collectionMessage
+        ]]
+        
+        database.child("\(conversationID)").setValue(value, withCompletionBlock: {error ,
+            _ in
+            guard error == nil else {
+                completion(false)
+                return
+            }
+            completion(true)
+        })
+        
+    }
+    public func getAllConverstion(for email: String, completion: @escaping(Result<String, Error>) -> Void){
+        
+    }
+    
+    public func getallmsgs(with id: String, completion: @escaping(Result<String, Error>) -> Void){
+        
+    }
+    
+    public func sendmsgs(to converstion: String, msg: Msg, completion: @escaping (Bool) -> Void) {
+        
+        
+    }
+}
+
+
+
+
     struct ChatUser{
         let firstName: String
         let lastName: String
